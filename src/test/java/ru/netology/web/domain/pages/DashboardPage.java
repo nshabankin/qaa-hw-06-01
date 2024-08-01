@@ -1,4 +1,4 @@
-package ru.netology.domain.pages;
+package ru.netology.web.domain.pages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
@@ -21,16 +21,12 @@ public class DashboardPage {
     public TransferPage selectDestinationCard(int index) {
         SelenideElement card = cards.get(index).shouldBe(visible);
         card.$("[data-test-id='action-deposit']").click();
-        // Add debug message
-        System.out.println("Card selected for transfer.");
         return new TransferPage();
     }
 
     // Extract balance from the item text
     private int extractBalance(String text) {
         String balancePart = text.split(", баланс: ")[1].split(" ")[0];
-        // Add debug message
-        System.out.println("Parsed balance: " + balancePart);
         return Integer.parseInt(balancePart);
     }
 }

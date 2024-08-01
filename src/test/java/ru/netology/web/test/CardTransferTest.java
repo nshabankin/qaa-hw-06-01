@@ -1,12 +1,13 @@
-package ru.netology.test;
+package ru.netology.web.test;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import ru.netology.domain.pages.DashboardPage;
-import ru.netology.domain.pages.LoginPage;
-import ru.netology.domain.pages.VerificationPage;
-import ru.netology.domain.pages.TransferPage;
+import ru.netology.web.domain.pages.DashboardPage;
+import ru.netology.web.domain.pages.LoginPage;
+import ru.netology.web.domain.pages.VerificationPage;
+import ru.netology.web.domain.pages.TransferPage;
+import ru.netology.web.data.DataHelper;
 
 import static com.codeborne.selenide.Selenide.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -14,9 +15,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CardTransferTest {
 
     // User input test data
-    String validLogin = "vasya";
-    String validPassword = "qwerty123";
-    String validVerificationCode = "12345";
+    DataHelper.AuthInfo user = DataHelper.getAuthInfo();
+    String validLogin = user.getLogin();
+    String validPassword = user.getPassword();
+    String validVerificationCode = String.valueOf(DataHelper.getVerificationCodeFor(user));
     String card1Number = "5559 0000 0000 0001";
     String card2Number = "5559 0000 0000 0002";
 

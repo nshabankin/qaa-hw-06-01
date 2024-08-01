@@ -1,9 +1,10 @@
 plugins {
     id 'java'
+    id "io.freefair.lombok" version "8.2.2"
 }
 
-group = 'ru.netology'
-version = '1.0-SNAPSHOT'
+group 'ru.netology'
+version '1.0-SNAPSHOT'
 
 sourceCompatibility = 11
 compileJava.options.encoding = "UTF-8"
@@ -14,7 +15,7 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.6.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.7.0'
     testImplementation 'com.codeborne:selenide:6.17.2'
 }
 

@@ -1,4 +1,4 @@
-package ru.netology.domain.pages;
+package ru.netology.web.domain.pages;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
@@ -8,8 +8,6 @@ public class LoginPage {
         $("[data-test-id='login'] input").setValue(username).shouldBe(visible);
         $("[data-test-id='password'] input").setValue(password).shouldBe(visible);
         $("[data-test-id='action-login']").click();
-        // Add debug message
-        System.out.println("Login button clicked.");
         return new VerificationPage();
     }
 }
