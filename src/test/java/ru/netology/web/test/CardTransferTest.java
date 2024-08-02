@@ -14,13 +14,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CardTransferTest {
 
-    // User input test data
+    // DataHelper objects
     DataHelper.AuthInfo user = DataHelper.getAuthInfo();
+    DataHelper.VerificationCode code = DataHelper.getVerificationCodeFor(user);
+    DataHelper.CardNumberList cards = DataHelper.getCardNumberList(user);
+
+    // User input test data
     String validLogin = user.getLogin();
     String validPassword = user.getPassword();
-    String validVerificationCode = String.valueOf(DataHelper.getVerificationCodeFor(user));
-    String card1Number = "5559 0000 0000 0001";
-    String card2Number = "5559 0000 0000 0002";
+    String validVerificationCode = code.getCode();
+    String card1Number = cards.getCard1Number();
+    String card2Number = cards.getCard2Number();
 
     @BeforeEach
     void setUp() {
